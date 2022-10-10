@@ -1,0 +1,22 @@
+Salesperson name: kermit
+Number of sales: 3
+Total income: 150.25
+
+Salesperson name: gonzo
+Number of sales: 0
+Total income: 0
+
+Salesperson name: fozzie
+Number of sales: 6
+Total income: 452.74
+
+Salesperson name: animal
+Number of sales: 1
+Total income: 2000
+
+Salesperson name: piggy
+Number of sales: 2
+Total income: 39
+
+Most sales: fozzie
+Highest income: animal
