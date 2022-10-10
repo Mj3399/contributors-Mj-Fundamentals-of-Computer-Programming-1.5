@@ -11,14 +11,10 @@ def remove_if_exists(lst: Any, elem: Any) -> None:
     """
     if isinstance(lst, list) and elem in lst:
         lst.remove(elem)
-# NOTE: The linter will complain at you due to the code using member variables like
-row,
-# num_nums_placed & size since you haven't added those in the constructor. 
-Implement the
-# constructor before worrying about these errors (if they're still there after 
-you've
-# implemented the constructor that's probably a sign your constructor has a bug in 
-it)
+# NOTE: The linter will complain at you due to the code using member variables likerow,
+# num_nums_placed & size since you haven't added those in the constructor. Implement the
+# constructor before worrying about these errors (if they're still there after you've
+# implemented the constructor that's probably a sign your constructor has a bug in it)
 class Board:
     """Represents a state (situation) in a Sudoku puzzle. Some cells may have 
 filled in
@@ -52,24 +48,20 @@ made
         self.num_nums_placed: int = 0
         # triply nested lists, representing a 9x9 sudoku board
         # 9 quadrants, 9 cells in each 3*3 subgrid, 9 possible numbers in each cell
-        # Note: using Any in the type hint since the cell can be either a list 
-(when it
+        # Note: using Any in the type hint since the cell can be either a list (when it
         # has not yet been assigned a value) or a value (once it has been assigned)
         # Note II: a lone underscore is a common convention for unused variables
         self.rows: List[List[Any]] = (
-            [[list(range(1, 10)) for _ in range(self.size)] for _ in 
-range(self.size)]
+            [[list(range(1, 10)) for _ in range(self.size)] for _ in range(self.size)]
         )
     def __str__(self) -> str:
         """String representation of the board"""
         row_str = ""
         for r in self.rows:
             row_str += f"{r}\n"
-        return f"num_nums_placed: {self.num_nums_placed}\nboard (rows): \
-n{row_str}"
+        return f"num_nums_placed: {self.num_nums_placed}\nboard (rows): \n{row_str}"
     def print_pretty(self):
-        """Prints all numbers assigned to cells, excluding lists of possible 
-numbers
+        """Prints all numbers assigned to cells, excluding lists of possible numbers
         that can still be assigned to cells"""
         row_str = ""
         for i, r in enumerate(self.rows):
@@ -80,14 +72,12 @@ numbers
                 row_str += "*" if isinstance(x, list) else f"{x}"
             row_str += " |\n"
         row_str += " -------------------------\n"
-        print(f"num_nums_placed: {self.num_nums_placed}\nboard (rows): \
-n{row_str}")
+        print(f"num_nums_placed: {self.num_nums_placed}\nboard (rows): \n{row_str}")
     def subgrid_coordinates(self, row: int, col: int) -> List[Tuple[int, int]]:
         """Get all coordinates of cells in a given cell's subgrid (3x3 space)
         Integer divide to get column & row indices of subgrid then take all 
 combinations
-        of cell indices with the row/column indices from those subgrids (also known
-as
+        of cell indices with the row/column indices from those subgrids (also knownas
         the outer or Cartesian product)
         Args:
             row - index of the cell's row, 0 - 8
@@ -96,15 +86,12 @@ as
             list of (row, col) that represent all cells in the box.
         """
         subgrids = [(0, 1, 2), (3, 4, 5), (6, 7, 8)]
-        # Note: row // 3 gives the index of the subgrid for the row index, this is 
-one
+        # Note: row // 3 gives the index of the subgrid for the row index, this is one
         # of 0, 1 or 2, col // 3 gives us the same for the column
         return [(r, c) for c in subgrids[col // 3] for r in subgrids[row // 3]]
     def find_most_constrained_cell(self) -> Tuple[int, int]:
-        """Finds the coordinates (row and column indices) of the cell that contains
-the
-        fewest possible values to assign (the shortest list). Note: in the case of 
-ties
+        """Finds the coordinates (row and column indices) of the cell that containsthe
+        fewest possible values to assign (the shortest list). Note: in the case of ties
         return the coordinates of the first minimum size cell found
         Returns:
             a tuple of row, column index identifying the most constrained cell
@@ -121,10 +108,8 @@ ties
                         row = r
         return(row, col)
     def failure_test(self) -> bool:
-        """Check if we've failed to correctly fill out the puzzle. If we find a 
-cell
-        that contains an [], then we have no more possibilities for the cell but 
-haven't
+        """Check if we've failed to correctly fill out the puzzle. If we find a cell
+        that contains an [], then we have no more possibilities for the cell but haven't
         assigned it a value so fail.
         Returns:
             True if we have failed to fill out the puzzle, False otherwise
@@ -146,11 +131,9 @@ haven't
         return self.num_nums_placed == 81
     def update(self, row: int, column: int, assignment: int) -> None:
         """Assigns the given value to the cell given by passed in row and column
-        coordinates. By assigning we mean set the cell to the value so instead the 
-cell
+        coordinates. By assigning we mean set the cell to the value so instead the cell
         being a list of possibities it's just the new assignment value.  Update all
-        affected cells (row, column & subgrid) to remove the possibility of 
-assigning
+        affected cells (row, column & subgrid) to remove the possibility of assigning
         the given value.
         Args:
             row - index of the row to assign
@@ -183,14 +166,11 @@ assigning
         pass
             
 def DFS(state: Board) -> Board:
-    """Performs a depth first search. Takes a Board and attempts to assign values 
-to
-    most constrained cells until a solution is reached or a mistake has been made 
-at
+    """Performs a depth first search. Takes a Board and attempts to assign values to
+    most constrained cells until a solution is reached or a mistake has been made at
     which point it backtracks.
     Args:
-        state - an instance of the Board class to solve, need to find most 
-constrained
+        state - an instance of the Board class to solve, need to find most constrained
             cell and attempt an assignment
     Returns:
         either None in the case of invalid input or a solved board
@@ -217,14 +197,11 @@ constrained
                 stack.push(cpy)
     return None
 def BFS(state: Board) -> Board:
-    """Performs a breadth first search. Takes a Board and attempts to assign values
-to
-    most constrained cells until a solution is reached or a mistake has been made 
-at
+    """Performs a breadth first search. Takes a Board and attempts to assign valuesto
+    most constrained cells until a solution is reached or a mistake has been made at
     which point it backtracks.
     Args:
-        state - an instance of the Board class to solve, need to find most 
-constrained
+        state - an instance of the Board class to solve, need to find most constrained
             cell and attempt an assignment
     Returns:
         either None in the case of invalid input or a solved board
