@@ -301,13 +301,11 @@ def query_loop() -> None:
  #   ) == sorted(["No answers"]), "failed search_pa_list test 3"
 #
     #assert isinstance(title_by_year(["1974"]), list), "title_by_year not returninga list"
-    #assert isinstance(title_by_year_range(["1970", "1972"]), list), 
-"title_by_year_range not returning a list"
+    #assert isinstance(title_by_year_range(["1970", "1972"]), list), "title_by_year_range not returning a list"
     #assert isinstance(title_before_year(["1950"]), list), "title_before_year not returning a list"
     #assert isinstance(title_after_year(["1990"]), list), "title_after_year not returning a list"
     #assert isinstance(director_by_title(["jaws"]), list), "director_by_title not returning a list"
-    #assert isinstance(title_by_director(["steven spielberg"]), list), 
-"title_by_director not returning a list"
+    #assert isinstance(title_by_director(["steven spielberg"]), list), "title_by_director not returning a list"
     #assert isinstance(actors_by_title(["jaws"]), list), "actors_by_title not returning a list"
     #assert isinstance(year_by_title(["jaws"]), list), "year_by_title not returninga list"
     #assert isinstance(title_by_actor(["orson welles"]), list), "title_by_actor notreturning a list"
