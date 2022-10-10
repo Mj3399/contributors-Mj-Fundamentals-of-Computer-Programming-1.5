@@ -8,8 +8,7 @@ class TTTBoard:
     def __init__(self):
         self.board = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
     def __str__(self):
-        output = " ".join(self.board[0]) + "\n" + " ".join(self.board[1]) + "\n" + 
-" ".join(self.board[2])
+        output = " ".join(self.board[0]) + "\n" + " ".join(self.board[1]) + "\n" + " ".join(self.board[2])
         return output
     def make_move(self, player:str, position:int):
         #print("make_move" , player , position)
@@ -41,16 +40,13 @@ class TTTBoard:
             return False
     def has_won(self, player:str):
         #the case where its in a row
-        if self.board[0][0] == player and self.board[0][1] == player and 
-self.board[0][2] == player:
+        if self.board[0][0] == player and self.board[0][1] == player and self.board[0][2] == player:
             #print("row 1")
             return True
-        elif self.board[1][0] == player and self.board[1][1] == player and 
-self.board[1][2] == player:
+        elif self.board[1][0] == player and self.board[1][1] == player and self.board[1][2] == player:
             #print("row 2")
             return True
-        elif self.board[2][0] == player and self.board[2][1] == player and 
-self.board[2][2] == player:
+        elif self.board[2][0] == player and self.board[2][1] == player and self.board[2][2] == player:
             #print("row 3")
             return True
         #the case where its a column
@@ -132,8 +128,7 @@ def play_tic_tac_toe() -> None:
         print(f"Board full, that's game!")
 if __name__ == "__main__":
     # here are some tests. These are not at all exhaustive tests. You will
-    # DEFINITELY need to write some more tests to make sure that your TTTBoard 
-class
+    # DEFINITELY need to write some more tests to make sure that your TTTBoard class
     # is behaving properly.
 ##    brd = TTTBoard()
 ##    brd.make_move("X", 8)
