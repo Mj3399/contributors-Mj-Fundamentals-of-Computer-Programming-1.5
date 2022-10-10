@@ -1,0 +1,38 @@
+Data files found - loading to use cached values...
+Loading dictionary from file: pos.dat
+Loading dictionary from file: neg.dat
+update_dict tests passed.
+
+These are the sums of values in the positive and negative dicitionaries.
+sum of positive word counts is: 612445
+sum of negative word counts is: 129404
+
+Here are some sample word counts in the positive and negative dicitionaries.
+count for the word 'love' in positive dictionary 1526
+count for the word 'love' in negative dictionary 99
+count for the word 'terrible' in positive dictionary 37
+count for the word 'terrible' in negative dictionary 176
+count for the word 'computer' in positive dictionary 46
+count for the word 'computer' in negative dictionary 12
+count for the word 'science' in positive dictionary 51
+count for the word 'science' in negative dictionary 10
+count for the word 'i' in positive dictionary 11065
+count for the word 'i' in negative dictionary 2629
+count for the word 'is' in positive dictionary 10894
+count for the word 'is' in negative dictionary 1819
+count for the word 'the' in positive dictionary 30590
+count for the word 'the' in negative dictionary 5646
+
+Here are some sample probabilities.
+P('love'| pos) 0.0024932851113161182
+P('love'| neg) 0.0007727736391456214
+P('terrible'| pos) 6.204638783890798e-05
+P('terrible'| neg) 0.00136780934128775
+
+The following should all be positive.
+positive
+positive
+
+The following should all be negative.
+negative
+negative
