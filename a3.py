@@ -29,10 +29,8 @@ def get_year(movie: Tuple[str, str, int, List[str]]) -> int:
     return movie[2]
 def get_actors(movie: Tuple[str, str, int, List[str]]) -> List[str]:
     return movie[3]
-# Below are a set of actions. Each takes a list argument and returns a list of 
-answers
-# according to the action and the argument. It is important that each function 
-returns a
+# Below are a set of actions. Each takes a list argument and returns a list of answers
+# according to the action and the argument. It is important that each function returns a
 # list of the answer(s) and not just the answer itself.
 def were_made_in_year(matches: List[str]) -> List[str]:
     """Finds if any movies were made in the passed in year
@@ -196,16 +194,14 @@ def title_by_actor(matches: List[str]) -> List[str]:
 def bye_action(dummy: List[str]) -> None:
     raise KeyboardInterrupt
 # The pattern-action list for the natural language query system A list of tuples of
-# pattern and action It must be declared here, after all of the function 
-definitions
+# pattern and action It must be declared here, after all of the function definitions
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what movies were made in _"), title_by_year),
     (str.split("what movies were made between _ and _"), title_by_year_range),
     (str.split("what movies were made before _"), title_before_year),
     (str.split("what movies were made after _"), title_after_year),
     (str.split("were movies made in _"), were_made_in_year),
-    # note there are two valid patterns here two different ways to ask for the 
-director
+    # note there are two valid patterns here two different ways to ask for the director
     # of a movie
     (str.split("who directed %"), director_by_title),
     (str.split("who was the director of %"), director_by_title),
@@ -254,10 +250,8 @@ def query_loop() -> None:
         except (KeyboardInterrupt, EOFError):
             break
     print("\nSo long!\n")
-# uncomment the following line once you've written all of your code and are ready 
-to try
-# it out. Before running the following line, you should make sure that your code 
-passes
+# uncomment the following line once you've written all of your code and are ready to try
+# it out. Before running the following line, you should make sure that your code passes
 # the existing asserts.
 #query_loop()
 #if __name__ == "__main__":
@@ -273,8 +267,7 @@ passes
     #    ["casablanca", "citizen kane", "gone with the wind", "metropolis"]
     #), "failed title_before_year test"
     #assert sorted(title_after_year(["1990"])) == sorted(
-    #    ["boyz n the hood", "dead again", "the crying game", "flirting", "malcolm 
-x"]
+    #    ["boyz n the hood", "dead again", "the crying game", "flirting", "malcolm x"]
     #), "failed title_after_year test"
     #assert sorted(director_by_title(["jaws"])) == sorted(
     #    ["steven spielberg"]
@@ -307,22 +300,15 @@ x"]
   #      search_pa_list(["what", "movies", "were", "made", "in", "2020"])
  #   ) == sorted(["No answers"]), "failed search_pa_list test 3"
 #
-    #assert isinstance(title_by_year(["1974"]), list), "title_by_year not returning
-a list"
+    #assert isinstance(title_by_year(["1974"]), list), "title_by_year not returninga list"
     #assert isinstance(title_by_year_range(["1970", "1972"]), list), 
 "title_by_year_range not returning a list"
-    #assert isinstance(title_before_year(["1950"]), list), "title_before_year not 
-returning a list"
-    #assert isinstance(title_after_year(["1990"]), list), "title_after_year not 
-returning a list"
-    #assert isinstance(director_by_title(["jaws"]), list), "director_by_title not 
-returning a list"
+    #assert isinstance(title_before_year(["1950"]), list), "title_before_year not returning a list"
+    #assert isinstance(title_after_year(["1990"]), list), "title_after_year not returning a list"
+    #assert isinstance(director_by_title(["jaws"]), list), "director_by_title not returning a list"
     #assert isinstance(title_by_director(["steven spielberg"]), list), 
 "title_by_director not returning a list"
-    #assert isinstance(actors_by_title(["jaws"]), list), "actors_by_title not 
-returning a list"
-    #assert isinstance(year_by_title(["jaws"]), list), "year_by_title not returning
-a list"
-    #assert isinstance(title_by_actor(["orson welles"]), list), "title_by_actor not
-returning a list"
+    #assert isinstance(actors_by_title(["jaws"]), list), "actors_by_title not returning a list"
+    #assert isinstance(year_by_title(["jaws"]), list), "year_by_title not returninga list"
+    #assert isinstance(title_by_actor(["orson welles"]), list), "title_by_actor notreturning a list"
     #print("All tests passed!")
