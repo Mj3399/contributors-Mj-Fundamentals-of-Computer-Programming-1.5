@@ -14,10 +14,8 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
     result: List[str] = []  # to store substitutions we will return if matched
     accumulator = ""
     accumulating = False
-    # keep checking as long as we haven't hit the end of either pattern or source 
-while
-    # pind is still a valid index OR sind is still a valid index (valid index means
-that
+    # keep checking as long as we haven't hit the end of either pattern or source while
+    # pind is still a valid index OR sind is still a valid index (valid index meansthat
     # the index is != to the length of the list)
     while sind != len(source) or pind != len(pattern):
         # your job is to fill out the body of this loop
@@ -33,8 +31,7 @@ that
     
         # 2) if the current thing in the pattern is a %
         # WARNING: this condition contains the bulk of the code for the assignment
-        # If you get stuck on this one, we encourage you to attempt the other 
-conditions
+        # If you get stuck on this one, we encourage you to attempt the other conditions
         #   and come back to this one afterwards
         elif pattern[pind] == "%":
             #print("currently matching %")
@@ -63,8 +60,7 @@ conditions
             result.append(source[sind])
             sind+=1
             pind+=1
-        # 5) if the current thing in the pattern is the same as the current thing 
-in the
+        # 5) if the current thing in the pattern is the same as the current thing in the
         # source
         elif pattern[pind] == source[sind]:
             if accumulating == True:
